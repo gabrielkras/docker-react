@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t widesoftware/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run widesoftware/docker-react npm run test -- --coverage
